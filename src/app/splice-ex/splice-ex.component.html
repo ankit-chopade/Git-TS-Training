@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+
+    <button type="button" class="btn btn-default btn-sm" (click)="loadMore()" [disabled]="flag">
+        <span class="glyphicon glyphicon-forward"></span> Load More
+    </button>
+<div class="w3-container">
+        <div *ngFor="let item of empData | slice : start : end" >
+            <div class="w3-card-3 w3-dark-blue" style="width:10%" style="float: left;padding: 10px;">
+                <div class="w3-container w3-center">
+                    <div *ngIf="item.gender== 'M'">
+                        <img src="../../assets/avatar2.jfif"  style="width:100px;height: 20%; margin: 10px;">
+                    </div>
+                    <div *ngIf="item.gender== 'F'">
+                         <img src="../../assets/avatar4.jfif"  style="width:100px;height: 20%; margin: 10px;">
+                    </div>
+                    <h5>{{item.ename}}</h5>
+                    <h5>{{item.job}}</h5>
+                    <h5>{{item.sal}}</h5>
+
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>
+
+<!-- angular:string = '../../assets/angular.PNG' -->

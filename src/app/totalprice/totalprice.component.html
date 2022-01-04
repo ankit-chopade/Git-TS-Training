@@ -1,0 +1,13 @@
+<h3>Task-1</h3>
+<fieldset>
+    <legend>Total Price</legend>
+    <Table>
+        <tr><td>Product Name :</td><td><input type="text" [(ngModel)]="name"><br></td></tr>
+        <tr><td> Unit Price :</td><td><input type="text" [(ngModel)]="price"><br></td></tr>
+        <tr><td>Quantity :</td><td><input type="text" [(ngModel)]="qty"><br></td></tr>
+        <tr><td><button (click)="getTotal()"> Get Total</button><br></td></tr>
+        <tr><td><p>{{total}}</p></td></tr>    
+</Table>
+
+
+</fieldset>

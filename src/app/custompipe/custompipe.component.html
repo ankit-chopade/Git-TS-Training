@@ -1,0 +1,16 @@
+
+<style>
+    th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+</style>
+<table border="1" style="background-color: lightblue; margin: 10px;">
+    <tr><th>Name</th><th>Grade</th></tr>
+    <tr *ngFor ="let item of data">
+        <td>{{item.name}}</td>
+        <td>{{item.grade | grade}}</td>
+
+    </tr>
+</table>

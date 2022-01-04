@@ -1,0 +1,19 @@
+
+<table border="1">
+    <tr>
+        <td>Id </td>
+        <td>Name </td>
+        <td>Price </td>
+        <td>Category </td>
+        <td>Quantity </td>
+    </tr>
+    <tr *ngFor = "let item of prodarray">
+        <td *ngIf = "item.category == category">{{item.pid}}</td>
+        <td *ngIf = "item.category == category">{{item.pname}}</td>
+        <td *ngIf = "item.category == category">{{item.price}}</td>
+        <td *ngIf = "item.category == category">{{item.category}}</td>
+        <td *ngIf = "item.category == category">{{item.qty}}</td>
+
+
+    </tr>
+</table>

@@ -1,0 +1,99 @@
+
+<!-- <h3>Task 1</h3>
+<p><b>Array of Tech Stack :</b> {{tech}}</p> -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+<fieldset style="padding-left: 10px;">
+    <legend>Add Products</legend>
+    <table >
+        <tr><td>Id </td><td> <input type="text" [disabled]="flag" [(ngModel)]="fpid"><br></td></tr>
+        <tr><td>Name </td><td> <input type="text" [(ngModel)]="fpname"><br></td></tr>
+        <tr><td>Price </td><td>     <input type="text" [(ngModel)]="fpprice"><br></td></tr>
+        <tr><td>Category </td><td><input type="text" [(ngModel)]="fpcat"><br></td></tr>
+        <tr><td>Quantity </td><td> <input type="text" [(ngModel)]="fpqty"><br></td></tr>
+        <!-- <tr><td>    <button (click)="addProduct()">Add</button><br> </td>
+        <td><button (click)="displayRecords()">Display Records</button></td>
+        <td><input type="button"  value="Update Dept" (click)="updateProd()"  /></td>
+        <td><input type="button"  value="Clear Fields" (click)="clearFields()"  /></td>
+        </tr> -->
+</table><br>
+<table>
+        <tr><td>    <button (click)="addProduct()">Add</button><br> </td>
+        <td><button (click)="displayRecords()">Display Records</button></td>
+        <td><input type="button"  value="Update Product" (click)="updateProd()"  /></td>
+        <td><input type="button"  value="Reset" (click)="clearFields()"  /></td>
+        </tr>
+</table>
+</fieldset ><br>
+<fieldset style="padding-left: 10px;">
+<table border="1"  >
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Quantity</th>
+</tr>
+<tr *ngFor="let prod of objs;">
+    <td>{{prod.pid}}</td>
+    <td>{{prod.pname}}</td>
+    <td>{{prod.price}}</td>
+    <td>{{prod.category}}</td>
+    <td>{{prod.qty}}</td>
+    <td>
+        <button type="button" class="btn btn-default btn-sm" (click)="selectProd(prod.pid)">
+            <span class="glyphicon glyphicon-eye-open"></span> Select
+          </button>
+
+          <button type="button" class="btn btn-default btn-sm" (click)="deleteProd(prod.pid)">
+            <span class="glyphicon glyphicon-remove"></span> Delete
+          </button>
+    </td>
+</tr>
+<tr *ngIf="objs.length == 0">
+    <td colspan="5" align="center" style="color:red;"> **No records found** </td>
+  </tr>
+</table>
+</fieldset>
+
+<br>
+<br>
+<button (click)="displayProductNames()"> Get Product Names</button><br><br>
+<p>{{productname}}</p>
+<input type="text"  [(ngModel)]="prodbycat">
+<button (click)="getProductByCategory()"> Get Product By Category</button><br><br>
+<table border="1"  >
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Quantity</th>
+    </tr>
+    <tr *ngFor="let prod of productbycategory;">
+        <td>{{prod.pid}}</td>
+        <td>{{prod.pname}}</td>
+        <td>{{prod.price}}</td>
+        <td>{{prod.category}}</td>
+        <td>{{prod.qty}}</td>
+    </tr>
+</table>
+<br><br>
+<button (click)="getPriceAndCategory()"> Get Price and  Category</button>
+
+<table border="1"  >
+    <tr>
+        <th>Price</th>
+        <th>Category</th>
+    </tr>
+    <tr *ngFor="let prod of pricencategory;">
+        <td>{{prod.price}}</td>
+        <td>{{prod.category}}</td>
+    </tr>
+</table>
+
+<br>
+<br>
+<button (click)="wrongURL()">Hitting Wrong URL</button>

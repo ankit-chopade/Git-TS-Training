@@ -1,0 +1,29 @@
+
+<h3>Filter Emp Details through Custom Pipe</h3>
+<hr/>
+
+Min Sal  :  <input [(ngModel)]="minsal"  />
+Max Salary  : <input [(ngModel)]="maxsal"  />
+
+
+<input type="button" value="Get Details"  (click)="filterData()"  />
+
+<br/><br/>
+ <table width="500"  border="2">
+  <tr>
+    <th>Emp Number</th>
+    <th>Emp Name</th>
+    <th>Emp Job</th>
+    <th>Emp Salary</th>
+    <th>Emp Deptno</th>
+  </tr>
+
+  <tr *ngFor="let item of empData | filteremp: fminsal : fmaxsal">
+      <td>{{item.empno}}</td>
+      <td>{{item.ename}}</td>
+      <td>{{item.job}}</td>
+      <td>{{item.sal | currency}}</td>
+      <td>{{item.deptno}}</td>
+  </tr>
+</table>
+

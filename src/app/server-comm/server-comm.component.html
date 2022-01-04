@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<button type="button" class="btn btn-default btn-sm" (click)="getData()">
+    <span class="glyphicon glyphicon-forward"></span> Get Data
+</button>
+<div class="w3-container">
+    <div *ngFor="let item of customers" >
+        <div class="w3-card-3 w3-dark-blue " style="width:10%" style="float: left;padding: 5px;">
+            <div class="w3-container w3-center">
+                <div style="height: 180px;width: 180px; background-color: rgb(232, 236, 240);float: left;border-style: outset;;">
+                    <img src="{{item.avatar}}" alt="" style="border-radius: 50%;width:100px;height: 100px;">
+                    <p>{{item.first_name}} {{item.last_name}}</p> 
+                    <p>{{item.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

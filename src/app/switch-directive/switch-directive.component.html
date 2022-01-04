@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .bg1{ background-color :  lightblue;  }
+    .bg2{ background-color :  lightgreen;  }
+    .bg3{ background-color :  pink;  }
+  
+    .c1
+    {
+      color : rgb(181, 243, 12);
+      border:1px solid rgb(128, 0, 0);
+      width :  100px;
+      margin : 5px;
+      float : left;
+      text-align : center;
+      background-color : rgb(16, 171, 233);
+    }
+  
+    .c2
+    {
+       background-color: rgb(128, 0, 90);
+       color : white;
+       margin: 0px;
+    }
+  
+  </style>
+  
+  Select Display Mode :
+  <!-- <select [(ngModel)]="mode">
+    <option>List</option>
+    <option>Table</option>
+    <option>Card</option>
+    <option>Others</option>
+    <option value="Table"><span class="glyphicon glyphicon-th"></span> Card</option>
+  </select> -->
+  <button type="button" class="btn btn-default btn-sm" (click)="mode='List'">
+    <span class="glyphicon glyphicon-th-list"></span> List
+  </button>
+
+  <button type="button" class="btn btn-default btn-sm" (click)="mode='Card'">
+    <span class="  glyphicon glyphicon-credit-card"></span> Card
+  </button>
+  <button type="button" class="btn btn-default btn-sm" (click)="mode='Table'">
+    <span class="glyphicon glyphicon-th"></span> Table
+  </button>
+
+
+  <section [ngSwitch]="mode">
+  
+    <article *ngSwitchCase=" 'List' ">
+      <ol>
+        <li *ngFor="let item of objs">
+            <span style="color:rgb(236, 18, 171); font-weight: bold;">{{item.pname}}</span><br>
+            <span  >{{item.price}}</span><br>
+            <span  >{{item.category}}</span>
+            <!-- [ngStyle]="{color: (item.course == 'Angular'?'Red':'Green') }" -->
+        </li>
+      </ol>
+    </article>
+  
+    <article *ngSwitchCase=" 'Table' ">
+      <table border="2" cellSpacing="0"  cellpadding="3">
+        <tr  class="bg1">
+                <th>Serial No.</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+        </tr>
+            <tr   *ngFor="let item of objs;  let i = index;  let x = even; let y = odd; "
+                  [ngClass]="{bg2:x,  bg3:y}">
+            <td> {{i+1}}  </td>
+            <td>{{item.pname}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}}</td>
+
+        </tr>
+  
+        <tr *ngIf="objs.length <= 0"  class="bg3">
+            <td colspan="3">**Product Details are not available. </td>
+        </tr>
+      </table>
+    </article>
+  
+    <article *ngSwitchCase=" 'Card' ">
+      <div class="c1" *ngFor="let item of objs">
+        <p  class="c2">{{item.pname}}</p>
+        <span>{{item.category}}</span><br>
+        <span>{{item.price}}</span>
+        <br/>
+      </div>
+    </article>
+  
+    <article *ngSwitchDefault>This is DEFAULT format</article>
+  
+  </section>

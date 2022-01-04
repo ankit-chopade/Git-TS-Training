@@ -1,0 +1,69 @@
+<style>
+	.error {   color : Red; font-size: 12px; }
+</style>
+
+<form [formGroup]="vehicleRegForm" (submit)="submitForm()">
+  <fieldset>
+      <legend>Vehicle Registration Form</legend>
+    <table>
+    <tr><td>
+      Owner Name:</td><td>
+      <input type="text" formControlName="oname" required />
+      <span *ngIf="vehicleRegForm.controls['oname'].invalid && vehicleRegForm.controls['oname'].dirty" class="error">Owner Name is required</span>
+    </td>
+    </tr>
+        <tr><td>
+      Contact Number :</td><td>
+      <input type="number" formControlName="cnumber" required />
+      <span *ngIf="vehicleRegForm.controls['cnumber'].invalid && vehicleRegForm.controls['cnumber'].dirty" class="error">Contact number is required</span>
+    </td></tr>
+    <tr><td>
+     Owner's Email  :</td><td>
+    <input  type="email" formControlName="email"  required/>
+    <span  class="error"  *ngIf="vehicleRegForm.controls['email'].invalid && vehicleRegForm.controls['email'].dirty">
+      Enter proper e-mail id
+    </span>
+    </td></tr>
+    <tr><td>
+    Vehicle Registration Number : </td><td>
+    <input type="text" placeholder="Ex. TS10AB1234" formControlName="vregno" required>
+    <span  class="error"  *ngIf="vehicleRegForm.controls['vregno'].invalid && vehicleRegForm.controls['vregno'].dirty">
+        Enter proper Vehicle Registration Number
+    </span>
+    </td></tr>
+    <tr><td>
+    Address : </td><td>
+    <input type="text"  formControlName="address" required>
+    <span  class="error"  *ngIf="vehicleRegForm.controls['address'].invalid && vehicleRegForm.controls['address'].dirty">
+        Enter Address
+    </span>
+    </td></tr>
+    <tr><td>
+    Model : </td><td>
+    <input type="text"  formControlName="model">
+    <span  class="error"  *ngIf="vehicleRegForm.controls['model'].invalid && vehicleRegForm.controls['model'].dirty">
+        Enter proper Model
+    </span>
+    </td></tr>
+    <tr><td>
+    Color : </td><td>
+    <input type="text"  formControlName="vcolor" required>
+    <span  class="error"  *ngIf="vehicleRegForm.controls['vcolor'].invalid && vehicleRegForm.controls['vcolor'].dirty">
+        Enter Color
+    </span>
+    </td></tr>
+    <tr><td>
+    Year :</td><td>
+    <input type="number"  formControlName="year" >
+    <span  class="error"  *ngIf="vehicleRegForm.controls['year'].invalid && vehicleRegForm.controls['year'].dirty">
+        Enter Proper Year
+    </span>
+    </td></tr>
+
+
+    <tr><td>
+    <button [disabled]="vehicleRegForm.invalid">Register</button>
+    </td></tr>
+</table>
+  </fieldset>
+</form>

@@ -1,0 +1,25 @@
+<!-- <app-child *ngFor = "let item of prodarray"
+[prodObj]= "item">
+
+</app-child> -->
+<!-- <div style="background-color: aquamarine; width: 500px; height: 50px;">
+     <table border="1"><tr><td> 
+ <a href="javascript:void(0)" (click)="Id()" >ID</a></td>   <td><a href="javascript:void(0)" (click)="Name()" >Name</a> </td>     <td><a href="javascript:void(0)" (click)="Price()">Price</a> </td>  <td><a href="javascript:void(0)" (click)="Cat()">Cat</a> </td>  <td><a href="javascript:void(0)" (click)="Qty()">Qty</a></td>
+</tr></table></div> -->
+<fieldset style="padding-left: 10px;">
+    <table border="1"  >
+    <tr>
+        <th (click)="Id()" >ID</th>
+        <th (click)="Name()">Name</th>
+        <th (click)="Price()">Price</th>
+        <th (click)="Cat()">Category</th>
+        <th (click)="Qty()">Quantity</th>
+    </tr>
+    <tr *ngFor="let prod of prodarray;">
+        <td>{{prod.pid}}</td>
+        <td>{{prod.pname}}</td>
+        <td>{{prod.price}}</td>
+        <td>{{prod.category}}</td>
+        <td>{{prod.qty}}</td>
+    </table>
+    </fieldset>

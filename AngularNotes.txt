@@ -1,0 +1,55 @@
+1. Note:  All components should be registered in AppModule.
+2. splice(index,how manu to removed,replaced by)
+3. We need refer Shared module from AppModule, add it in imports section
+4. @Input()		----			Parent -->   Child
+   @Output()	----			Child  --->    Parent
+    @Output()
+	onLocationChanged:EventEmitter<string> = new   EventEmitter();
+5. <ng-content>  tag is act like a placeholder to present the content that we specified in the component tags.
+	it send content to child what we writes in <app-tag_name> in app.html
+6. @ViweChild/en used to access do elements eg. innerHTML
+	  @ViewChild('p1') --> use to access tags with #p1 in same component and not child component
+	  @ViewChild(Child_Component) ele:Child_Component -> use to access first occourance
+
+7. Life Cycle Hooks
+	1.  constructor()		---  inject services
+	2.	  ngOnChanges	---	  trigger when we change input property values	
+	3.   ngOnInit				---	  trigger after constructor												
+	4.   ngDoCheck		---	  change detector --- data binding properties.  It will be invoked when the change detector of the given component is invoked.  
+	5.   ngAfterContentInit (first time)	
+			-- Invoked after Angular performs any content projection into the components view. 
+	6.   ngAfterContentChecked (multiple time)
+			-> It will be invoked each time the content of the given component has been checked by the change detection mechanism of Angular.
+	7.   ngAfterViewInit 
+		-> It will be invoked when the component’s view has been fully initialized --- includes all children and grand children.
+	8.   ngAfterViewChecked  
+		-> It will be invoked each time the view of the given component has been checked by the change detection mechanism of Angular.
+	9.  ngDestroy 		-->	  tirgger when the component is unloading 	
+								--> This method will be invoked just before Angular destroys the component.
+8. pipe
+	{{item | slice: 3:7}}
+	impure pipe : executes when argument also changes eg : filterpipe: key : value -> key, value changes/make pipe:false
+	pure : only when input changes on which pipe is applied
+	
+9. Observe the response - Observable/  Handle the response	- subscribe(success(required),error,complete)
+	RxJS -> develop ajax calls/ Subject in RxJS -> results to be multicasted to many subscribers i.e there wil be multiple subcribe methods
+		-> for each next subscribe method will execute i.e only one subscribe() multiple next()
+		Subject{multiple subscibe} + next() --> when next() is called all subscribe() methods from Subject will execute
+
+10. RxJS Methods:
+	of(),from([]) -> will crate observable obj -> use subscribe()
+	obser.pipe(filter(),map())
+	obser.pipe(filter(),reduce((a,b)=> a+b,c)) -> it will do specified operation(+) on array  and add c in it -> a..b+called
+
+11. Forms
+	1. Template driven -> we have to use directive/template variables in html pg, no connection with .ts file #txtname='ngModel'
+	2. Model Driven -> use FormControl, FormGroup/ define in .ts file and use in .html file	
+
+12. Custom Directives
+	1. Attribute dir -> inject ElementRef -> get access to that tag -> use ele.nativeElement.style... <p dirname></p>
+	2. Srtuctural Dir -> inject ViewContainerRef,TemplateRef<any>(use to show total dom element)/ for giving roles -> this.viewContainer.createEmbeddedView(this.templateRef); else clear()
+		. use setter of same name as dir to give specific roles
+	
+	
+
+		
